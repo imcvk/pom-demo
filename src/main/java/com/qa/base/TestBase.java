@@ -5,6 +5,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.qa.pages.LoginPage;
+import com.qa.report.ExtentReporterNG;
 import com.qa.utilities.TestUtil;
 import com.qa.utilities.WebEventListener;
 import org.openqa.selenium.WebDriver;
@@ -27,7 +28,7 @@ public class TestBase {
   public ExtentReports extentReports;
   public ExtentTest extentTest;
   public String methodName;
-
+public ExtentReporterNG extentReporterNG;
   public TestBase () {
     try {
       properties = new Properties ();
@@ -62,8 +63,16 @@ public class TestBase {
     driver.manage ().timeouts ().implicitlyWait (Duration.ofSeconds (TestUtil.IMPLICIT_WAIT));
     driver.manage ().timeouts ().pageLoadTimeout (Duration.ofSeconds (TestUtil.PAGE_LOAD_TIMEOUT));
     driver.get (properties.getProperty ("url"));
-
     //
+    htmlReporter = new ExtentSparkReporter (System.getProperty ("user.dir") + "\\extentReport\\Report.html");
+    extentReports = new ExtentReports ();
+    extentReports.setSystemInfo ("OS", "Windows 10");
+    extentReports.setSystemInfo ("Browser", "Chrome");
+    extentReports.setSystemInfo ("Java Version", "1.8");
 
+    htmlReporter.config ().setTheme (Theme.STANDARD);
+    htmlReporter.config ().setDocumentTitle ("Automation Report");
+    htmlReporter.config ().setReportName ("Extent Report Example");
+    extentReports.attachReporter (htmlReporter);
   }
 }

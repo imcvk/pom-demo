@@ -9,6 +9,7 @@ import com.qa.utilities.TestUtil;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -36,14 +37,14 @@ public class ContactsPageTest extends TestBase {
     homePage = loginPage.login (properties.getProperty ("username"), properties.getProperty ("password"));
   }
 
-  @Test(enabled = false, priority = 1)
+  @Test
   public void validateContactLabel () {
     testUtil.switchToFrame ();
     homePage.clickOnContactLink ();
     Assert.assertTrue (contactsPage.verifyContactLabelDisplayed ());
   }
 
-  @Test(enabled = false, priority = 2)
+  @Test
   public void selectContact () {
     testUtil.switchToFrame ();
     homePage.clickOnContactLink ();
