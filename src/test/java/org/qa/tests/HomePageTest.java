@@ -31,7 +31,7 @@ public class HomePageTest extends TestBase {
   public void teardown () {
     driver.quit ();
   }
-  @Test(enabled = false,priority = 1)
+  @Test(enabled = true,priority = 1)
   public void verifyHomePageTitleTest () {
     homePage.verifyHomePageTitle ();
   }
@@ -42,7 +42,7 @@ public class HomePageTest extends TestBase {
     Assert.assertTrue (homePage.verifyUserName ());
   }
 
-  @Test(enabled = false, priority = 3)
+  @Test(enabled = true, priority = 3)
   public void verifyClickContactsLink () {
     testUtil.switchToFrame ();
     contactsPage = homePage.clickOnContactLink ();

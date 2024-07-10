@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="D:/Code/testng/pom-framework/pom-demo/src/test/java/org/qa/tests/ContactsPageTest.java">
+        <classes>
+            <class name="org.qa.tests.ContactsPageTest"/>
+
+            <class name="org.qa.tests.HomePageTest"/>
+
+            <class name="org.qa.tests.LoginPageTest"/>
+
+        </classes>
+    </test>
+</suite>
